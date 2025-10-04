@@ -14,7 +14,7 @@ The projects cover both fundamental and advanced topics, emphasizing dynamic dat
 7. **Numerical Derivative** *(forward, backward, and central differences)*  
 8. **Simpson’s Method** *(1/3 and 3/8 rules)*  
 9. **Trapezoidal Method**  
-10. **Gregory-Newton Interpolation** *(without variable transformation)*  
+10. **Gregory-Newton Interpolation** *(without change of variable)*  
 
 ## Language & Tools  
 - **Language:** C  
