@@ -1,4 +1,4 @@
-# Numerical Analysis Projects  
+# Numerical Analysis (Sayısal Analiz)
 
 This folder contains numerical analysis methods implemented in **C** as part of Computer Engineering studies.  
 The projects cover both fundamental and advanced topics, emphasizing dynamic data structures and algorithmic implementation.  
