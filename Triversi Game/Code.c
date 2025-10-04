@@ -2,11 +2,23 @@
 
 int main() {
 	
+	/*
+	N: matrisin satir & sutun sayisi
+	i,j,m,n,p,q: donguler icin kullilacak degiskenker.
+	x ve y: kullanici (oyunucu) tarafindan girilecek koordinatlar ([1-N] arasi).
+	v ve w: A matrisin indisleri [0,N-1] oldugu icin v=x-1 ve w=y-1 olacak sekilde: A[v][w].
+	orta1 ve orta2: Oyuna basliyacak olan ilk oyuncunun oyunun ortasindan baslamsi icin kullanilan degisken.
+	ctrl: while dongusunden cikmak icin kullanilacak degisken (flag).
+	sayac = N*N: sayacin hedefi oyunu sona varildigini anlamak.
+	kirmizisayac, sarisayac, mavisayac: oyun tamamlandiginda her bir oyuncunun kac tane tasinin oldugunu saymak.
+	renk: Sirasiyla her bir oyuncunun rengi (K->S->M->K->S->M->..) ve renge bagli yatay/dikey/capraz kontroller.
+	*/
 	int N,i,j,x,y,v,w,m,n,p,q;
 	int orta1, orta2, ctrl=0, renk_degisim=0;
 	int sayac, kirmizisayac=0, sarisayac=0, mavisayac=0;
 	char A[23][23], renk;
 	
+	//Kullanicidan Matrisin Satir/Sutun talebi (Eger N<=0 veya N>23 tekrar kullanicidan talebi)
 	printf("1. Oyuncu -> Kirmizi (K)\n2. Oyuncu -> Sari (S)\n3. Oyuncu -> Mavi (M)\n\n");
 	printf("Triversi oyunu icin kare tahtanin satir/sutun sayisini giriniz: ");
 	scanf("%d", &N);
@@ -16,6 +28,7 @@ int main() {
 		scanf("%d",&N);
 	}
 	
+	//Bos kare tahtayi (N*N) yazdirma
 	printf("\nBaslangic Kare Tahtasi: \n");
 	for (i=0;i<N;i++){
 		for(j=0;j<N;j++){
@@ -26,6 +39,7 @@ int main() {
 	}
 	printf("\n");
 	
+	//ilk oyuncu oyunu ortadan basliyacak (Eger N tek ise sadece oyun karenin sadece 1 tane ortasi var... N cift ise oyun karenin birden fazla orta yeri var)
 	i=0;
 	printf("%d. Oyuncu (K) rengi icin hamlenizi yapiniz: \nx ve y koordinatlari tahtanin ortasinda olacak sekilde giriniz: ",(i%3)+1);
 	scanf("%d %d",&x,&y);
@@ -55,21 +69,32 @@ int main() {
 	printf("\n");
 	i++;
 	
-	sayac=N*N;
+	sayac=N*N; //Girilen degerler sayac oldugu anda donguden cikmasina yardimici olur.
 	
 	while (i<sayac){
 		renk_degisim=0;
-
-		if (i%3==0) renk = 'K'; 
-		else if (i%3==1) renk = 'S';
-		else if (i%3==2) renk = 'M';
+		//(i%3)+1: Hangi oyuncunun sirasi oldugunu belirtmek ve hangi renk (K,S,M) oldugunu belirtmek.
+		//Belirtilen oyuncudan tasin koordinatlarini istemek.
+		//x ve y koordinatlari negatif, N'den buyuk, yada baska bir tasin oldugu yere olursa tekrardan x ve y'yi kullanicidan istemek.
+		//x ve y [1-N] arasinda ama c dilinde indisler [0,N-1] arasinda. Kullanici x ve y giriyor ama matriste v ve w indislerine A[v][w] yaziliyor (v=x-1 & w=y-1).
+		//Yatay/dik/capraz kontrolleri icin m ve n degiskenleri kullanilacak (v ve w degerleri sabit kalmalari icin).
+		//Kullanicinin girdigi rengi (K, S, M) matrise yazdirmak
+		
+		// Sirali olarak oyunculardan x ve y koordinatlar talebi
+		if (i%3==0) renk = 'K';       // 1. oyuncu renk kirmizi
+		else if (i%3==1) renk = 'S';  // 2. oyuncu renk sari
+		else if (i%3==2) renk = 'M';  // 3. oyuncu renk mavi
 		
 		printf("%d. Oyuncu (%c) rengi icin hamlenizi yapiniz: \nx ve y koordinatlari giriniz: ",(i%3)+1,renk);
 		scanf("%d %d",&x,&y);
 		
 		v=x-1;
 		w=y-1;
-		while (x <= 0 || x > N || y <= 0 || y > N || A[v][w] != '-' ||
+		while (x <= 0 || x > N || y <= 0 || y > N || A[v][w] != '-' || // Kullanicinin degerleri [1-N] arasinda oldugunu kontrol et ve o konumda baska bir tasin olup olmadigi
+        	/*
+			Tasin butun komsularini kontrol etmek (ortalarda olan tasin komsuluklari 8.. Kenarda olan taslarin komsuluklari ortakilerden daha az ona gore kontrol)
+			Eger tasin butun komsuluklarinda '-' var ise o zaman etrafi bostur ve kurallara gore en az 1 tane komsusu olmasi gerektigi x ve y tekrar kullanicidan istemek
+			*/
 			((v - 1 < 0 || w - 1 < 0 || A[v - 1][w - 1] == '-') &&
             (v - 1 < 0 || A[v - 1][w] == '-') &&
             (v - 1 < 0 || w + 1 >= N || A[v - 1][w + 1] == '-') &&
@@ -78,6 +103,7 @@ int main() {
             (v + 1 >= N || w - 1 < 0 || A[v + 1][w - 1] == '-') &&
             (v + 1 >= N || A[v + 1][w] == '-') &&
             (v + 1 >= N || w + 1 >= N || A[v + 1][w + 1] == '-'))) {
+			//x ve y hatali olma durumda tekrar istemek
 			printf("x ve/veya y degerleri hatali tekrar giriniz: ");
 			scanf("%d %d",&x, &y);
 			v=x-1;
@@ -95,6 +121,8 @@ int main() {
 		}
 		printf("\n");
 		
+		// Yatay olarak bir hamle olup olmadigi kontrol:
+		//Yatay sol kontrol (satir sayisi (v) sabit ama sutun sayisi (n) bir bir azalacak)
 		m=v;
 		n=w-2;
 		if (A[m][n+1]!='-' && A[m][n+1]!=renk){
@@ -111,6 +139,7 @@ int main() {
 		}
 		ctrl=0;
 		
+		//Yatay sag kontrol (satir sayisi (v) sabit ama sutun sayisi (n) bir bir artacak)
 		m=v;
 		n=w+2;
 		if (A[m][n-1]!='-' && A[m][n-1]!=renk){
@@ -127,6 +156,8 @@ int main() {
 		}
 		ctrl=0;
 		
+		//Dik kontroller
+		//Dik yukari kontrol (sutun (w) sayisi sabit ama satir sayisi degisiyor)
 		m=v-2;
 		n=w;
 		if (A[m+1][n]!='-' && A[m+1][n]!=renk){
@@ -143,6 +174,7 @@ int main() {
 		}
 		ctrl=0;
 		
+		//Dik asagi kontrol (sutun (w) sayisi sabit ama satir sayisi degisiyor )
 		m=v+2;
 		n=w;
 		if (A[m-1][n]!='-' && A[m-1][n]!=renk){
@@ -159,6 +191,7 @@ int main() {
 		}
 		ctrl=0;
 		
+		//Sag Yukrai capraz kontrolu:
 		m=v-2;
 		n=w+2;
 		if (A[m+1][n-1]!='-' && A[m+1][n-1]!=renk){
@@ -180,6 +213,7 @@ int main() {
 		}
 		ctrl=0;
 		
+		//Sol Asagi capraz kontrolu:
 		m=v+2;
 		n=w-2;
 		if (A[m-1][n+1]!='-' && A[m-1][n+1]!=renk){
@@ -201,6 +235,7 @@ int main() {
 		}
 		ctrl=0;
 		
+		//Sol Yukari capraz kontrolu:
 		m=v-2;
 		n=w-2;
 		if (A[m+1][n+1]!='-' && A[m+1][n+1]!=renk){
@@ -222,6 +257,7 @@ int main() {
 		}
 		ctrl=0;
 		
+		//Sag Asagi capraz kontrolu:
 		m=v+2;
 		n=w+2;
 		if (A[m-1][n-1]!='-' && A[m-1][n-1]!=renk){
@@ -243,6 +279,7 @@ int main() {
 		}
 		ctrl=0;
 		
+		//Eger renk degisimi oldu ise yeni tahtayi yazdirma:
 		if (renk_degisim==1){
 			printf("RENK DEGISIMI:\n");
 						for (p=0;p<N;p++){
@@ -257,8 +294,9 @@ int main() {
 		
 		
 		i++;
-	}
+	} //while bitti (kullanici girdileri ve her biri icin kontrol)
 
+	//Tahtada kac tane renk oldugunu  bulmak ve renk sayisini yazdirmak
 	for (i=0;i<N;i++){
 		for (j=0;j<N;j++){
 			if (A[i][j]=='K') kirmizisayac++;
@@ -269,6 +307,7 @@ int main() {
 	
 	printf("Kirmizi Taslar Sayisi: %d\nSari Taslar Sayisi: %d\nMavi Taslar Sayisi: %d\n\n",kirmizisayac,sarisayac,mavisayac);
 	
+	//En cok renge sahip olan oyuncu oyunu kazanir:
 	if (kirmizisayac > sarisayac && kirmizisayac>mavisayac)
 		printf("1. OYUNCU KAZANDI");
 	else if (sarisayac>kirmizisayac && sarisayac >mavisayac)
