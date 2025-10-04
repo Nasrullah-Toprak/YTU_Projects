@@ -18,7 +18,7 @@ The projects cover both fundamental and advanced topics, emphasizing dynamic dat
 
 ## Language & Tools  
 - **Language:** C  
-- **Libraries Used:** `stdio.h`, `math.h`, `stdlib.h`  
+- **Libraries Used:** `stdio.h`, `math.h`, `stdlib.h`, `string.h`
 
 ## Purpose  
 To implement core numerical methods from scratch in C and reinforce understanding of computational problem-solving techniques used in engineering and applied mathematics.  
