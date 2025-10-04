@@ -123,7 +123,7 @@ int main (){
 		check=0;
 		printf("1. Add/Delete/Update Student \n");
 		printf("2. View Student Information \n");
-		printf("3. List Students Who Haven’t Returned Books \n"); 
+		printf("3. List Students Who Havenâ€™t Returned Books \n"); 
 		printf("4. List Penalized Students \n");
 		printf("5. List All Studnets \n"); 
 		printf("6. Borrow/Return Book \n");	
@@ -960,10 +960,10 @@ void borrowbook(OGRENCILER* headogrenciler, KITAPLAR* headkitaplar, KITAPODUNC**
 							flag=1;
 							temp4->ogrenciID=id;
 						} else {
-							printf("This book is currently borrowed by another student.\n"); // Yorum satiri: kitap rafta degil
+							printf("This book is currently borrowed by another student.\n");
 							flag=1;
 						}
-						break; // Yorum satiri: dogru kitap örnegi bulundu, döngü bitir
+						break;
 					}
 					temp4=temp4->next;
 				}
@@ -1883,3 +1883,4 @@ void freeKitapOdunc(KITAPODUNC *head) {
 		head = temp;
 	}
 }
+
