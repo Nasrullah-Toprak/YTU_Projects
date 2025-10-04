@@ -8,7 +8,7 @@ The projects cover both fundamental and advanced topics, emphasizing dynamic dat
 1. **Bisection Method**  
 2. **Regula-Falsi Method**  
 3. **Newton-Raphson Method**  
-4. **Inverse of an NxN Matrix** *(N should be dynamic, not fixed)*  
+4. **Inverse of an NxN Matrix**
 5. **Cholesky (ALU) Method**  
 6. **Gauss-Seidel Method**  
 7. **Numerical Derivative** *(forward, backward, and central differences)*  
