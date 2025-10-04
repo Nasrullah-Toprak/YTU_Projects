@@ -7,9 +7,9 @@ Three players (Red, Yellow, and Blue) compete on a square board, flipping each o
 
 ## 🧠 Game Description
 
-- **Player 1:** Red (`K`)
-- **Player 2:** Yellow (`S`)
-- **Player 3:** Blue (`M`)
+- **Player 1:** Red (`K` *Kıtmızı*)
+- **Player 2:** Yellow (`S` *Sarı*)
+- **Player 3:** Blue (`M` *Mavi*)
 
 The players take turns placing their colored pieces on the board.  
 Whenever a player encloses opponent pieces between two of their own, the enclosed pieces flip to their color — just like in **Reversi**, but with **three colors**!
