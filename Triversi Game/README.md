@@ -7,7 +7,7 @@ Three players (Red, Yellow, and Blue) compete on a square board, flipping each o
 
 ## 🧠 Game Description
 
-- **Player 1:** Red (`K` *Kıtmızı*)
+- **Player 1:** Red (`K` *Kırmızı*)
 - **Player 2:** Yellow (`S` *Sarı*)
 - **Player 3:** Blue (`M` *Mavi*)
 
