@@ -636,6 +636,7 @@ KITAPODUNC* loadkitapodunc(char *filename){
 	return head;
 }
 
+
 void addstudent(OGRENCILER** headogrenciler){
 	OGRENCILER *newstudent, *temp;
 	int id, exists=0;
@@ -1883,4 +1884,5 @@ void freeKitapOdunc(KITAPODUNC *head) {
 		head = temp;
 	}
 }
+
 
