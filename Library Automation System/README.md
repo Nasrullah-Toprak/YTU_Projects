@@ -14,39 +14,15 @@ All data (authors, books, students, borrow records, etc.) are stored persistentl
 
 ## ⚙️ Functional Requirements
 
-### 👩‍🏫 Author Operations
-- Add / Delete / Update / List authors  
-- Each author has a unique auto-incremented `authorID`  
-- Data is stored in `Yazarlar.csv` using a **singly linked list**  
-- List is sorted by `authorID`
+👩‍🏫 Author Operations
 
-### 🎓 Student Operations
-- Add / Delete / Update / List students  
-- Each student has: Name, Surname, 8-digit Student Number, and Library Points (initially 100)  
-- Managed using a **doubly linked list**  
-- Data stored in `Ogrenciler.csv`  
+🎓 Student Operations
 
-### 📚 Book Operations
-- Add / Delete / Update / List books  
-- Each book has: Name, 13-digit ISBN, and number of copies  
-- Each copy has a unique **tag number** (`ISBN_1`, `ISBN_2`, etc.) and **status** (“RAFTA” or Borrower ID)  
-- Data stored in `Kitaplar.csv` and `KitapOrnekleri.csv`  
-- Implemented using **singly linked lists**  
+📚 Book Operations
 
-### ✍️ Book–Author Relationship
-- One book may have multiple authors and vice versa  
-- Relationships stored in `KitapYazar.csv`  
-- Managed with **dynamic struct arrays** created using file line count  
+✍️ Book–Author Relationship
 
-### 📘 Borrowing and Returning Books
-- A student can borrow multiple books  
-- Each borrowing record includes: `StudentID`, `BookTag`, `OperationType`, and `Date`  
-- Operation types:  
-  - `0` → Borrow  
-  - `1` → Return  
-- Data stored in `OduncIslemleri.csv`  
-- Late returns (after 15 days) result in a **–10 penalty points**  
-- Students with negative points cannot borrow books  
+📘 Borrowing and Returning Books
 
 ---
 
@@ -70,7 +46,9 @@ All data (authors, books, students, borrow records, etc.) are stored persistentl
 
 ### ✍️ Author Menu
 13. Add / Delete / Update Authors  
-14. Display Author Info and Their Books  
+14. Display Author Info and Their Books
+
+15. Exit & End
 
 ---
 
