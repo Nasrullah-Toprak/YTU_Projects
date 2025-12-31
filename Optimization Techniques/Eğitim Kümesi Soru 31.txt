@@ -1,0 +1,2 @@
+Bir üçgenin iç açılar toplamı kaç derecedir? | 180 derece.
++1

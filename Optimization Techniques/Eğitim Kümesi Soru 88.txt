@@ -1,0 +1,2 @@
+Bir haftada kaç gün vardır? | 10 gün.
+-1

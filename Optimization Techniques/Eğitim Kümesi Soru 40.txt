@@ -1,0 +1,2 @@
+Bir saat kaç dakikadır? | 100 dakika.
+-1

@@ -1,0 +1,2 @@
+Su kaç elementten oluşur? | 1 elementten.
+-1
