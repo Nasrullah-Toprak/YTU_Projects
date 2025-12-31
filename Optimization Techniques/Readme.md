@@ -23,8 +23,3 @@ This project builds a Turkish question–answer ranking system using sentence em
 - Saved embeddings (`.pt`, `.npy`)
 - Performance comparison plots
 - t-SNE visualization of weight evolution (in 2 diemensions)
-
-## Run
-```bash
-python main.py
-
