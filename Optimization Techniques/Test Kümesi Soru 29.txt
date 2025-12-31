@@ -1,0 +1,2 @@
+Dörtgenin kaç kenarı vardır? | 4.
++1

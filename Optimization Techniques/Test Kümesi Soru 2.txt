@@ -1,0 +1,2 @@
+Suyun donma noktası kaç derecedir? | -100 derece.
+-1

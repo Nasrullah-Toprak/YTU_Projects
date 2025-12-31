@@ -1,0 +1,2 @@
+Bir karenin alanı nasıl hesaplanır? | Kenar + Kenar.
+-1
