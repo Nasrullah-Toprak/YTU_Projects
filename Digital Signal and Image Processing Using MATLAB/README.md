@@ -1,22 +1,6 @@
 # MATLAB Signal and Image Processing Applications
 
-## General Title for Both Codes
-
-**Digital Signal and Image Processing Using MATLAB**
-
 This project contains two MATLAB programs focused on fundamental digital signal processing and image processing applications. The first code works on discrete-time convolution, audio recording, echo-system modeling, and system response analysis. The second code performs frequency-domain image filtering using the 2D Fourier Transform to remove periodic noise from an image.
-
----
-
-## Code Titles
-
-### 1. `24011949.m`
-
-**Discrete-Time Convolution and Audio Echo System Analysis**
-
-### 2. `Sas_24011949(6).m`
-
-**Frequency-Domain Noise Removal from Images Using 2D Fourier Transform**
 
 ---
 
@@ -31,7 +15,7 @@ Both codes demonstrate practical applications of MATLAB in analyzing signals and
 
 ---
 
-# 1. `24011949.m`
+# 1. `Discrete-Time Convolution and Audio Echo System Analysis.m`
 
 ## Purpose
 
@@ -190,7 +174,7 @@ The script produces:
 
 ---
 
-# 2. `Sas_24011949(6).m`
+# 2. `Frequency-Domain Noise Removal from Images Using 2D Fourier Transform.m`
 
 ## Purpose
 
